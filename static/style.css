@@ -1,0 +1,15 @@
+body{
+    background-color: blue;
+}
+
+.title{
+    text-align: center;
+}
+
+div{
+    border-radius: 5px;
+    padding: 20px;
+}
+#fname{
+    padding: 200px;
+}
