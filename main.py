@@ -27,7 +27,6 @@ def login():
         password = request.form.get("password")
 
         new_members = Login(username=name, email=email, password=password)
-        return redirect(url_for("home", members=new_members))
         #add new members to database
         db.session.add(new_members)
         #commit new mebers to database
