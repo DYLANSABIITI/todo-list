@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///login.db'
+app.secret_key = "6@sttdklmt!ma2#"
 
 db = SQLAlchemy(app)
 
@@ -16,21 +17,24 @@ class Login(db.Model):
         return (f"name:{self.username}, password:{self.password}")
 
 
-
 @app.route("/")
 @app.route("/login", methods=["POST", "GET"])
 def login():
     title = "SIGN UP"
     if request.method == "POST":
-        name = request.form.get("name")
-        email = request.form.get("email")
-        password = request.form.get("password")
+        name = request.form["name"]
+        email = request.form["email"]
+        password = request.form["password"]
 
         new_members = Login(username=name, email=email, password=password)
-        #add new members to database
-        db.session.add(new_members)
-        #commit new mebers to database
-        db.session.commit()
+        try:
+            #add new members to database
+            db.session.add(new_members)
+            #commit new mebers to database
+            db.session.commit()
+        except:
+            return "Problem occured while saving your info"
+        
     else:
         return render_template("index.html", title=title)
 

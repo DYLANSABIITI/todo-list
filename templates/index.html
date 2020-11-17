@@ -9,22 +9,23 @@
     
 </head>
 <body>
+
     {% block content %}
     
     <h2 class="title">{{title}}</h2>
     <div class="container pt-3">
         <form action="/home" method="POST">
             <div class="form-group">
-              <label for="exampleInputEmail1">Username</label>
-              <input type="text" class="form-control form-control-sm" id="username" name="username">
+              <label>Username</label>
+              <input type="text" class="form-control form-control-sm" name="name">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">E-mail</label>
-                <input type="email" class="form-control form-control-sm" id="email" name="email">
+                <input type="email" class="form-control form-control-sm" name="email">
               </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control form-control-sm" id="password" name="password">
+              <input type="password" class="form-control form-control-sm" name="password">
             </div>
             <button type="submit" class="btn btn-primary">Sign in</button>
           </form>

@@ -12,9 +12,13 @@
     {% block content %}
     
     <h1 class="title">{{title}}</h1>
-    {%for member in members%}
-        <h3>{{member.username}}</h3>
-    {%endfor%}
+    <div id="names">
+        {% for member in members %}
+
+            <h3>{{member.username}}</h3>
+
+        {% endfor %}
+    </div>
 
     {% endblock %}
 </body>
